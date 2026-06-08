@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RSV in Saudi Arabia: Disease Burden &amp; Prevention</title>
+  <meta name="description" content="Professional medical education resource on RSV epidemiology, burden, and prevention strategies in Saudi Arabia." />
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:        #0b1e3d;
+      --navy-mid:    #112a52;
+      --navy-light:  #1a3a6e;
+      --teal:        #00bfae;
+      --teal-dark:   #008f82;
+      --teal-light:  #4dd9cc;
+      --accent:      #f0a500;
+      --text:        #e8edf5;
+      --text-muted:  #8fa4c8;
+      --card-bg:     #132240;
+      --card-border: #1e3a6a;
+      --white:       #ffffff;
+      --danger:      #e05c5c;
+      --success:     #3dba7e;
+      --font-sans:   'Segoe UI', system-ui, -apple-system, sans-serif;
+      --radius:      12px;
+      --shadow:      0 8px 32px rgba(0,0,0,0.35);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--navy);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: var(--teal); text-decoration: none; }
+    a:hover { color: var(--teal-light); text-decoration: underline; }
+    img { max-width: 100%; }
+
+    /* ─── Typography ───────────────────────────────────────────── */
+    h1 { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 800; line-height: 1.15; }
+    h2 { font-size: clamp(1.4rem, 3vw, 2.1rem); font-weight: 700; }
+    h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 600; }
+    h4 { font-size: 1rem; font-weight: 600; }
+    p  { color: var(--text-muted); }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+    }
+    .section-title { color: var(--white); margin-bottom: 0.75rem; }
+    .section-desc  { color: var(--text-muted); max-width: 680px; }
+
+    /* ─── Layout Helpers ───────────────────────────────────────── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    section    { padding: 5rem 0; }
+    section:nth-child(even) { background: var(--navy-mid); }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; }
+    .flex    { display: flex; }
+    .items-center { align-items: center; }
+    .gap-1  { gap: 0.5rem; }
+    .gap-2  { gap: 1rem; }
+    .mt-2   { margin-top: 1rem; }
+    .mt-3   { margin-top: 1.5rem; }
+    .mt-4   { margin-top: 2rem; }
+    .mb-2   { margin-bottom: 1rem; }
+    .mb-3   { margin-bottom: 1.5rem; }
+    .mb-4   { margin-bottom: 2rem; }
+
+    /* ─── Navbar ───────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(11,30,61,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--card-border);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.5); }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-weight: 800; font-size: 1rem; color: var(--white);
+    }
+    .nav-logo span { color: var(--teal); }
+    .nav-logo svg { flex-shrink: 0; }
+    .nav-links {
+      display: flex; align-items: center; gap: 0.25rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-muted); font-size: 0.85rem; font-weight: 500;
+      padding: 0.4rem 0.75rem; border-radius: 6px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); background: var(--navy-light); text-decoration: none; }
+    .nav-links a.active { color: var(--teal); }
+    .hamburger {
+      display: none; background: none; border: none; cursor: pointer;
+      color: var(--text); padding: 0.4rem;
+    }
+    .mobile-menu {
+      display: none; flex-direction: column; gap: 0.25rem;
+      background: var(--navy-mid); border-top: 1px solid var(--card-border);
+      padding: 1rem 1.5rem;
+    }
+    .mobile-menu a {
+      color: var(--text-muted); font-size: 0.9rem; font-weight: 500;
+      padding: 0.6rem 0; border-bottom: 1px solid var(--card-border);
+      display: block;
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu.open { display: flex; }
+
+    /* ─── Hero ─────────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #060f1e 0%, #0b1e3d 40%, #0d2545 70%, #0e2d4a 100%);
+      display: flex; align-items: center; padding-top: 64px;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg-pattern {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image: radial-gradient(circle at 20% 20%, rgba(0,191,174,0.07) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(0,191,174,0.05) 0%, transparent 50%);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative; z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(0,191,174,0.12); border: 1px solid rgba(0,191,174,0.3);
+      color: var(--teal); font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.35rem 0.85rem; border-radius: 50px; margin-bottom: 1.25rem;
+    }
+    .hero-badge::before {
+      content: ''; width: 7px; height: 7px; border-radius: 50%;
+      background: var(--teal); animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: 0.4; transform: scale(1.3); }
+    }
+    .hero-title { color: var(--white); margin-bottom: 1.25rem; }
+    .hero-title .highlight { color: var(--teal); }
+    .hero-desc { font-size: 1.05rem; margin-bottom: 2rem; color: var(--text-muted); }
+    .hero-cta-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.5rem; border-radius: 8px;
+      font-size: 0.9rem; font-weight: 600; cursor: pointer;
+      border: none; transition: all 0.2s; text-decoration: none;
+    }
+    .btn-primary {
+      background: var(--teal); color: var(--navy);
+    }
+    .btn-primary:hover { background: var(--teal-light); color: var(--navy); text-decoration: none; }
+    .btn-outline {
+      background: transparent; color: var(--text);
+      border: 1.5px solid var(--card-border);
+    }
+    .btn-outline:hover { border-color: var(--teal); color: var(--teal); text-decoration: none; }
+    .hero-stats-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    .hero-stat-card {
+      background: rgba(19,34,64,0.8);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      backdrop-filter: blur(4px);
+      transition: border-color 0.3s;
+    }
+    .hero-stat-card:hover { border-color: var(--teal); }
+    .hero-stat-card .stat-value {
+      font-size: 1.9rem; font-weight: 800; color: var(--teal);
+      line-height: 1; margin-bottom: 0.25rem;
+    }
+    .hero-stat-card .stat-label {
+      font-size: 0.78rem; font-weight: 500; color: var(--text-muted);
+      line-height: 1.3;
+    }
+    .hero-stat-card .stat-icon {
+      font-size: 1.5rem; margin-bottom: 0.5rem;
+    }
+    .season-bar {
+      margin-top: 1rem; padding: 1rem 1.25rem;
+      background: rgba(19,34,64,0.8);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+    }
+    .season-bar p { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.6rem; }
+    .months-track {
+      display: flex; gap: 3px;
+    }
+    .month-block {
+      flex: 1; text-align: center; font-size: 0.6rem; font-weight: 600;
+      padding: 5px 2px; border-radius: 4px;
+      color: var(--text-muted); background: var(--navy-light);
+      transition: background 0.3s;
+    }
+    .month-block.peak {
+      background: var(--teal); color: var(--navy); font-weight: 700;
+    }
+    .month-block.shoulder {
+      background: rgba(0,191,174,0.3); color: var(--teal-light);
+    }
+
+    /* ─── Section: Disease Overview ────────────────────────────── */
+    .pathogenesis-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 2.5rem;
+      align-items: start;
+      margin-top: 2.5rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: transform 0.2s, border-color 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(0,191,174,0.35);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
+    .card-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; margin-bottom: 0.85rem;
+    }
+    .icon-teal  { background: rgba(0,191,174,0.15); }
+    .icon-amber { background: rgba(240,165,0,0.15); }
+    .icon-red   { background: rgba(224,92,92,0.15); }
+    .icon-blue  { background: rgba(66,153,225,0.15); }
+    .icon-purple{ background: rgba(159,122,234,0.15); }
+    .icon-green { background: rgba(61,186,126,0.15); }
+    .card h4    { color: var(--white); margin-bottom: 0.4rem; }
+    .card p     { font-size: 0.87rem; }
+
+    .spectrum-track {
+      position: relative; margin-top: 2rem;
+    }
+    .spectrum-arrow {
+      height: 4px;
+      background: linear-gradient(to right, var(--success), var(--accent), var(--danger));
+      border-radius: 2px; position: relative;
+    }
+    .spectrum-arrow::after {
+      content: '▶'; position: absolute; right: -10px; top: -7px;
+      color: var(--danger); font-size: 0.85rem;
+    }
+    .spectrum-labels {
+      display: flex; justify-content: space-between;
+      font-size: 0.7rem; color: var(--text-muted); margin-top: 0.4rem;
+    }
+    .spectrum-stages {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-top: 1.25rem;
+    }
+    .stage-card {
+      background: var(--navy-light);
+      border-radius: 8px; padding: 0.9rem;
+      border-top: 3px solid transparent;
+      font-size: 0.82rem;
+    }
+    .stage-card h5 { color: var(--white); font-size: 0.83rem; margin-bottom: 0.3rem; }
+    .stage-card p  { font-size: 0.78rem; }
+    .stage-card.s1 { border-color: var(--success); }
+    .stage-card.s2 { border-color: var(--accent); }
+    .stage-card.s3 { border-color: #e07a5f; }
+    .stage-card.s4 { border-color: var(--danger); }
+
+    /* ─── Epidemiology ─────────────────────────────────────────── */
+    .epi-grid {
+      display: grid; grid-template-columns: 1.2fr 1fr; gap: 2rem; margin-top: 2rem;
+    }
+    .stat-highlight {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 1.25rem; border-radius: 10px;
+      background: var(--navy-light); margin-bottom: 0.85rem;
+      border-left: 3px solid var(--teal);
+    }
+    .stat-highlight .big { font-size: 1.8rem; font-weight: 800; color: var(--teal); line-height: 1; }
+    .stat-highlight .label { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.2rem; }
+    .comorbidity-list { list-style: none; }
+    .comorbidity-list li {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.65rem 0; border-bottom: 1px solid var(--card-border);
+      font-size: 0.87rem;
+    }
+    .comorbidity-list li:last-child { border-bottom: none; }
+    .comorbidity-list .bar-wrap {
+      flex: 1; height: 6px; background: var(--navy-light);
+      border-radius: 3px; margin: 0 1rem; overflow: hidden;
+    }
+    .comorbidity-list .bar-fill {
+      height: 100%; background: var(--teal); border-radius: 3px;
+      transition: width 1.2s ease;
+    }
+    .comorbidity-list .pct { font-size: 0.82rem; font-weight: 700; color: var(--teal); min-width: 36px; text-align: right; }
+    .comorbidity-list .name { min-width: 140px; color: var(--text); }
+    .mers-box {
+      background: rgba(240,165,0,0.08);
+      border: 1px solid rgba(240,165,0,0.3);
+      border-radius: var(--radius); padding: 1.25rem; margin-top: 1rem;
+    }
+    .mers-box h4 { color: var(--accent); margin-bottom: 0.5rem; }
+    .mers-box p  { font-size: 0.85rem; }
+
+    /* ─── High-Risk Cards ──────────────────────────────────────── */
+    .risk-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem; margin-top: 2rem;
+    }
+    .risk-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      cursor: pointer;
+      transition: all 0.25s;
+      position: relative; overflow: hidden;
+    }
+    .risk-card::before {
+      content: ''; position: absolute;
+      bottom: 0; left: 0; right: 0; height: 3px;
+      background: var(--teal); transform: scaleX(0);
+      transition: transform 0.3s; transform-origin: left;
+    }
+    .risk-card:hover::before, .risk-card.active::before { transform: scaleX(1); }
+    .risk-card:hover, .risk-card.active {
+      border-color: rgba(0,191,174,0.4);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+    .risk-card .emoji { font-size: 2.2rem; margin-bottom: 0.75rem; }
+    .risk-card h3 { color: var(--white); font-size: 1rem; margin-bottom: 0.3rem; }
+    .risk-card .risk-level {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; padding: 0.2rem 0.6rem; border-radius: 50px;
+      margin-bottom: 0.75rem;
+    }
+    .risk-level.critical { background: rgba(224,92,92,0.15); color: var(--danger); }
+    .risk-level.high     { background: rgba(240,165,0,0.15); color: var(--accent); }
+    .risk-card .risk-body { font-size: 0.82rem; line-height: 1.55; }
+    .risk-detail {
+      display: none; margin-top: 0.85rem; padding-top: 0.85rem;
+      border-top: 1px solid var(--card-border);
+    }
+    .risk-card.active .risk-detail { display: block; }
+    .risk-detail ul { list-style: none; }
+    .risk-detail li {
+      font-size: 0.8rem; color: var(--text-muted);
+      padding: 0.25rem 0; padding-left: 1rem; position: relative;
+    }
+    .risk-detail li::before {
+      content: '›'; position: absolute; left: 0; color: var(--teal);
+    }
+    .risk-detail .prevention-tag {
+      display: inline-block; margin-top: 0.6rem;
+      background: rgba(0,191,174,0.1); border: 1px solid rgba(0,191,174,0.25);
+      color: var(--teal-light); font-size: 0.73rem; padding: 0.25rem 0.7rem;
+      border-radius: 4px; font-weight: 600;
+    }
+
+    /* ─── Prevention Tabs ──────────────────────────────────────── */
+    .tabs {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin: 2rem 0 0; padding-bottom: 1rem;
+      border-bottom: 2px solid var(--card-border);
+    }
+    .tab-btn {
+      background: none; border: 1.5px solid var(--card-border);
+      color: var(--text-muted); font-size: 0.85rem; font-weight: 600;
+      padding: 0.55rem 1.1rem; border-radius: 8px;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .tab-btn:hover { border-color: var(--teal); color: var(--teal); }
+    .tab-btn.active {
+      background: var(--teal); border-color: var(--teal);
+      color: var(--navy);
+    }
+    .tab-panels { margin-top: 2rem; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .prevention-layout {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;
+    }
+    .drug-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+    .drug-name {
+      font-size: 1.3rem; font-weight: 800; color: var(--white);
+      margin-bottom: 0.2rem;
+    }
+    .drug-class {
+      font-size: 0.78rem; color: var(--teal); font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      margin-bottom: 1rem;
+    }
+    .drug-props { list-style: none; }
+    .drug-props li {
+      display: flex; gap: 0.75rem;
+      padding: 0.55rem 0; border-bottom: 1px solid var(--card-border);
+      font-size: 0.85rem;
+    }
+    .drug-props li:last-child { border-bottom: none; }
+    .drug-props .prop-key { color: var(--text-muted); min-width: 100px; }
+    .drug-props .prop-val { color: var(--text); }
+    .efficacy-bar-wrap {
+      margin-top: 0.85rem;
+    }
+    .efficacy-label {
+      display: flex; justify-content: space-between;
+      font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.3rem;
+    }
+    .efficacy-bar {
+      height: 8px; background: var(--navy-light); border-radius: 4px; overflow: hidden;
+    }
+    .efficacy-fill {
+      height: 100%; background: linear-gradient(to right, var(--teal), var(--teal-light));
+      border-radius: 4px; transition: width 1s ease 0.3s;
+    }
+    .indications-list { list-style: none; margin-top: 1rem; }
+    .indications-list li {
+      display: flex; align-items: flex-start; gap: 0.6rem;
+      padding: 0.45rem 0; font-size: 0.85rem; color: var(--text-muted);
+    }
+    .indications-list li::before {
+      content: '✓'; color: var(--success); font-weight: 700; flex-shrink: 0;
+    }
+    .warning-box {
+      background: rgba(240,165,0,0.08);
+      border: 1px solid rgba(240,165,0,0.25);
+      border-radius: 8px; padding: 0.85rem 1rem; margin-top: 1rem;
+      font-size: 0.82rem; color: var(--text-muted);
+    }
+    .warning-box strong { color: var(--accent); }
+    .supportive-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem; margin-top: 1rem;
+    }
+    .support-card {
+      background: var(--navy-light); border-radius: 10px; padding: 1.1rem;
+    }
+    .support-card h5 { color: var(--white); font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .support-card p  { font-size: 0.8rem; }
+
+    /* ─── NIP / Guidelines ─────────────────────────────────────── */
+    .guidelines-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem;
+    }
+    .guideline-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius); padding: 1.5rem;
+    }
+    .org-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--navy-light); border-radius: 6px;
+      padding: 0.3rem 0.75rem; margin-bottom: 1rem;
+      font-size: 0.78rem; font-weight: 700; color: var(--white);
+    }
+    .org-badge .dot { width: 8px; height: 8px; border-radius: 50%; }
+    .rec-list { list-style: none; }
+    .rec-list li {
+      padding: 0.5rem 0; border-bottom: 1px solid var(--card-border);
+      font-size: 0.85rem; color: var(--text-muted);
+      display: flex; gap: 0.6rem; align-items: flex-start;
+    }
+    .rec-list li:last-child { border-bottom: none; }
+    .rec-list li .bullet { color: var(--teal); font-weight: 700; flex-shrink: 0; }
+    .timeline-bar {
+      display: flex; gap: 0; margin-top: 1.5rem; border-radius: 8px; overflow: hidden;
+    }
+    .timeline-seg {
+      flex: 1; padding: 0.6rem 0.4rem; text-align: center;
+      font-size: 0.72rem; font-weight: 600;
+    }
+    .timeline-seg.pending { background: var(--navy-light); color: var(--text-muted); }
+    .timeline-seg.active  { background: rgba(0,191,174,0.2); color: var(--teal); }
+    .timeline-seg.done    { background: var(--teal); color: var(--navy); }
+
+    /* ─── References ───────────────────────────────────────────── */
+    #references { background: var(--navy); padding: 4rem 0 3rem; }
+    .ref-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 0.75rem; margin-top: 1.5rem;
+    }
+    .ref-item {
+      background: var(--card-bg); border: 1px solid var(--card-border);
+      border-radius: 8px; padding: 0.85rem 1rem;
+      font-size: 0.78rem; color: var(--text-muted); line-height: 1.5;
+    }
+    .ref-item .ref-num {
+      color: var(--teal); font-weight: 700; margin-right: 0.4rem;
+    }
+
+    /* ─── Footer ───────────────────────────────────────────────── */
+    footer {
+      background: #060f1e;
+      border-top: 1px solid var(--card-border);
+      padding: 2rem 0;
+    }
+    .footer-inner {
+      display: flex; flex-wrap: wrap; gap: 1rem;
+      align-items: flex-start; justify-content: space-between;
+    }
+    .disclaimer {
+      background: rgba(224,92,92,0.07);
+      border: 1px solid rgba(224,92,92,0.2);
+      border-radius: 8px; padding: 1rem 1.25rem;
+      font-size: 0.78rem; color: var(--text-muted);
+      max-width: 720px; margin-bottom: 1rem;
+    }
+    .disclaimer strong { color: var(--danger); }
+    .footer-meta { font-size: 0.75rem; color: var(--text-muted); }
+    .footer-meta a { color: var(--teal); }
+
+    /* ─── Chips & Badges ───────────────────────────────────────── */
+    .chip {
+      display: inline-block; font-size: 0.72rem; font-weight: 600;
+      padding: 0.2rem 0.6rem; border-radius: 50px;
+      text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    .chip-teal   { background: rgba(0,191,174,0.15); color: var(--teal); }
+    .chip-red    { background: rgba(224,92,92,0.15); color: var(--danger); }
+    .chip-amber  { background: rgba(240,165,0,0.15); color: var(--accent); }
+    .chip-green  { background: rgba(61,186,126,0.15); color: var(--success); }
+
+    /* ─── Divider ──────────────────────────────────────────────── */
+    .divider {
+      height: 1px; background: var(--card-border); margin: 2rem 0;
+    }
+
+    /* ─── Scroll-to-top ────────────────────────────────────────── */
+    #scrollTop {
+      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--teal); color: var(--navy);
+      border: none; cursor: pointer; font-size: 1.1rem;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s, transform 0.3s;
+      box-shadow: 0 4px 16px rgba(0,191,174,0.4);
+    }
+    #scrollTop.visible { opacity: 1; pointer-events: auto; }
+    #scrollTop:hover { transform: scale(1.1); }
+
+    /* ─── Responsive ───────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero-grid          { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-stats-grid    { grid-template-columns: repeat(2, 1fr); }
+      .pathogenesis-grid  { grid-template-columns: 1fr; }
+      .epi-grid           { grid-template-columns: 1fr; }
+      .prevention-layout  { grid-template-columns: 1fr; }
+      .guidelines-grid    { grid-template-columns: 1fr; }
+      .spectrum-stages    { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      section             { padding: 3.5rem 0; }
+      .nav-links          { display: none; }
+      .hamburger          { display: block; }
+      .risk-cards-grid    { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .hero-stats-grid    { grid-template-columns: 1fr; }
+      .risk-cards-grid    { grid-template-columns: 1fr; }
+      .spectrum-stages    { grid-template-columns: 1fr; }
+    }
+
+    /* ─── Animated counter ─────────────────────────────────────── */
+    .count-anim { display: inline-block; }
+
+    /* ─── Active section highlight in nav ─────────────────────── */
+    .nav-links a.active { color: var(--teal); }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════ NAV ═══════════════════════════════ -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <div class="nav-logo" aria-label="RSV Saudi Arabia">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+        <circle cx="14" cy="14" r="13" stroke="#00bfae" stroke-width="2"/>
+        <circle cx="14" cy="14" r="6" fill="#00bfae" fill-opacity="0.2"/>
+        <circle cx="14" cy="14" r="3" fill="#00bfae"/>
+        <line x1="14" y1="1" x2="14" y2="6" stroke="#00bfae" stroke-width="2"/>
+        <line x1="14" y1="22" x2="14" y2="27" stroke="#00bfae" stroke-width="2"/>
+        <line x1="1" y1="14" x2="6" y2="14" stroke="#00bfae" stroke-width="2"/>
+        <line x1="22" y1="14" x2="27" y2="14" stroke="#00bfae" stroke-width="2"/>
+      </svg>
+      RSV <span>Saudi Arabia</span>
+    </div>
+    <ul class="nav-links" role="list">
+      <li><a href="#hero">Overview</a></li>
+      <li><a href="#disease">Disease</a></li>
+      <li><a href="#epidemiology">Epidemiology</a></li>
+      <li><a href="#high-risk">High-Risk</a></li>
+      <li><a href="#prevention">Prevention</a></li>
+      <li><a href="#guidelines">Guidelines</a></li>
+      <li><a href="#references">References</a></li>
+    </ul>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+        <line x1="2" y1="6"  x2="20" y2="6"  stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="2" y1="11" x2="20" y2="11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="2" y1="16" x2="20" y2="16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu" role="menu">
+    <a href="#hero"         role="menuitem">Overview</a>
+    <a href="#disease"      role="menuitem">Disease Overview</a>
+    <a href="#epidemiology" role="menuitem">Epidemiology</a>
+    <a href="#high-risk"    role="menuitem">High-Risk Groups</a>
+    <a href="#prevention"   role="menuitem">Prevention</a>
+    <a href="#guidelines"   role="menuitem">Guidelines</a>
+    <a href="#references"   role="menuitem">References</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════ HERO ══════════════════════════════ -->
+<section id="hero" aria-labelledby="heroTitle">
+  <div class="hero-bg-pattern" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-grid">
+
+      <!-- Left: copy -->
+      <div>
+        <div class="hero-badge" aria-label="Medical Education Resource">Medical Education Resource</div>
+        <h1 class="hero-title" id="heroTitle">
+          RSV in Saudi Arabia<br/>
+          <span class="highlight">Disease Burden &amp; Prevention</span>
+        </h1>
+        <p class="hero-desc">
+          A comprehensive resource for Medical Affairs professionals and healthcare providers on the epidemiology, clinical impact, and evidence-based prevention of Respiratory Syncytial Virus (RSV) in the Kingdom of Saudi Arabia.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#disease" class="btn btn-primary" aria-label="Explore Disease Overview">
+            Explore Disease Overview
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#prevention" class="btn btn-outline" aria-label="View Prevention Strategies">Prevention Strategies</a>
+        </div>
+
+        <!-- Seasonality bar -->
+        <div class="season-bar mt-4" aria-label="RSV seasonal peak in Saudi Arabia">
+          <p>RSV Seasonal Activity — Saudi Arabia</p>
+          <div class="months-track" role="img" aria-label="Peak season October through March">
+            <div class="month-block shoulder">Oct</div>
+            <div class="month-block peak">Nov</div>
+            <div class="month-block peak">Dec</div>
+            <div class="month-block peak">Jan</div>
+            <div class="month-block peak">Feb</div>
+            <div class="month-block shoulder">Mar</div>
+            <div class="month-block">Apr</div>
+            <div class="month-block">May</div>
+            <div class="month-block">Jun</div>
+            <div class="month-block">Jul</div>
+            <div class="month-block">Aug</div>
+            <div class="month-block">Sep</div>
+          </div>
+          <p style="margin-top:0.4rem;font-size:0.7rem;">
+            <span style="color:var(--teal);font-weight:700;">■</span> Peak &nbsp;
+            <span style="color:rgba(0,191,174,0.6);font-weight:700;">■</span> Shoulder &nbsp;
+            <span style="color:var(--text-muted);">■</span> Low activity
+          </p>
+        </div>
+      </div>
+
+      <!-- Right: stat cards -->
+      <div>
+        <div class="hero-stats-grid">
+          <div class="hero-stat-card" aria-label="RSV-associated hospitalization rate in infants">
+            <div class="stat-icon" aria-hidden="true">🏥</div>
+            <div class="stat-value"><span class="count-anim" data-target="33">0</span>%</div>
+            <div class="stat-label">of all-cause pediatric hospitalizations attributed to RSV in children &lt;2 years</div>
+          </div>
+          <div class="hero-stat-card" aria-label="RSV-associated LRTI in infants under 6 months">
+            <div class="stat-icon" aria-hidden="true">👶</div>
+            <div class="stat-value"><span class="count-anim" data-target="22">0</span>%</div>
+            <div class="stat-label">of infants &lt;6 months hospitalized with RSV develop severe LRTI requiring ICU</div>
+          </div>
+          <div class="hero-stat-card" aria-label="RSV burden in adults over 60">
+            <div class="stat-icon" aria-hidden="true">👴</div>
+            <div class="stat-value"><span class="count-anim" data-target="177">0</span>K</div>
+            <div class="stat-label">estimated RSV-associated hospitalizations annually in adults 60+ globally (MENA contribution significant)</div>
+          </div>
+          <div class="hero-stat-card" aria-label="RSV season duration in Saudi Arabia">
+            <div class="stat-icon" aria-hidden="true">📅</div>
+            <div class="stat-value"><span class="count-anim" data-target="6">0</span> mo</div>
+            <div class="stat-label">peak RSV season duration (Oct–Mar) with highest transmission in winter months</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ DISEASE OVERVIEW ══════════════════════ -->
+<section id="disease" aria-labelledby="diseaseTitle">
+  <div class="container">
+    <p class="section-label">Disease Overview</p>
+    <h2 class="section-title" id="diseaseTitle">RSV Pathophysiology &amp; Clinical Spectrum</h2>
+    <p class="section-desc">
+      Respiratory Syncytial Virus (RSV) is a single-stranded, negative-sense RNA virus (Pneumoviridae family) that infects nearly all children by age 2, and causes recurrent infections throughout life. Its fusion (F) protein is the primary target for prevention strategies.
+    </p>
+
+    <div class="pathogenesis-grid">
+
+      <!-- Left: key biology cards -->
+      <div>
+        <div class="grid-2" style="gap:1rem;">
+          <div class="card" aria-label="Viral mechanism">
+            <div class="card-icon icon-teal" aria-hidden="true">🧬</div>
+            <h4>Viral Mechanism</h4>
+            <p>RSV F protein mediates fusion with host respiratory epithelial cells. Pre-fusion conformation (pre-F) is the key neutralization target exploited by nirsevimab and vaccine antigens.</p>
+          </div>
+          <div class="card" aria-label="Transmission route">
+            <div class="card-icon icon-blue" aria-hidden="true">💨</div>
+            <h4>Transmission</h4>
+            <p>Droplet and contact spread (fomites). Incubation 2–8 days. Viral shedding persists up to 3–8 days in immunocompetent hosts; weeks in immunocompromised.</p>
+          </div>
+          <div class="card" aria-label="Immune evasion">
+            <div class="card-icon icon-amber" aria-hidden="true">🛡️</div>
+            <h4>Immune Evasion</h4>
+            <p>NS1/NS2 proteins suppress IFN-α/β responses. Incomplete immune memory leads to repeated infections across all ages. Maternal antibodies wane by 4–6 months.</p>
+          </div>
+          <div class="card" aria-label="Inflammatory response">
+            <div class="card-icon icon-red" aria-hidden="true">🔥</div>
+            <h4>Inflammatory Cascade</h4>
+            <p>Airway inflammation, mucus hypersecretion, and bronchospasm drive bronchiolitis. Th2-skewed response in infants amplifies wheeze and may predispose to later asthma.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: clinical spectrum -->
+      <div class="card" style="padding:1.75rem;" aria-label="Clinical spectrum of RSV disease">
+        <h3 style="color:var(--white); margin-bottom:1rem;">Clinical Spectrum of RSV Disease</h3>
+        <div class="spectrum-track">
+          <div class="spectrum-arrow" role="img" aria-label="Disease severity spectrum from mild to severe"></div>
+          <div class="spectrum-labels">
+            <span>Mild</span>
+            <span>Moderate</span>
+            <span>Severe</span>
+          </div>
+        </div>
+        <div class="spectrum-stages" role="list">
+          <div class="stage-card s1" role="listitem" aria-label="Upper respiratory tract infection">
+            <h5>URTI</h5>
+            <p>Rhinorrhea, cough, low-grade fever. Self-limited in healthy adults &amp; older children. 2–7 days.</p>
+          </div>
+          <div class="stage-card s2" role="listitem" aria-label="Bronchiolitis">
+            <h5>Bronchiolitis</h5>
+            <p>Infants &lt;12 mo. Wheezing, tachypnea, feeding difficulty. Leading cause of infant hospitalization.</p>
+          </div>
+          <div class="stage-card s3" role="listitem" aria-label="Pneumonia">
+            <h5>Pneumonia</h5>
+            <p>RSV LRTI in elderly, immunocompromised. Hypoxia, consolidation. High 30-day mortality in 60+.</p>
+          </div>
+          <div class="stage-card s4" role="listitem" aria-label="Severe respiratory failure">
+            <h5>Severe LRTI</h5>
+            <p>Respiratory failure, NIV/MV requirement. Associated with cardiac decompensation in older adults.</p>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <h4 style="color:var(--white); margin-bottom:0.75rem;">Complications by Population</h4>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem;">
+          <div style="background:var(--navy-light);border-radius:8px;padding:0.9rem;">
+            <p style="font-size:0.75rem;font-weight:700;color:var(--teal);margin-bottom:0.4rem;">INFANTS</p>
+            <p style="font-size:0.8rem;">Apnea, bronchopulmonary dysplasia, reactive airway disease, prolonged hospitalization, PICU admission</p>
+          </div>
+          <div style="background:var(--navy-light);border-radius:8px;padding:0.9rem;">
+            <p style="font-size:0.75rem;font-weight:700;color:var(--accent);margin-bottom:0.4rem;">ELDERLY / HIGH-RISK</p>
+            <p style="font-size:0.8rem;">COPD/asthma exacerbations, heart failure decompensation, prolonged functional decline, 30-day mortality 3–7%</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ EPIDEMIOLOGY ══════════════════════════ -->
+<section id="epidemiology" aria-labelledby="epiTitle">
+  <div class="container">
+    <p class="section-label">Saudi Epidemiology</p>
+    <h2 class="section-title" id="epiTitle">Regional Burden &amp; Co-morbidity Context</h2>
+    <p class="section-desc">
+      Saudi Arabia's unique demographic and climatic profile — high prevalence of non-communicable diseases, large congregating events (Hajj, Umrah), and a growing elderly population — amplifies RSV burden beyond global averages.
+    </p>
+
+    <div class="epi-grid">
+      <!-- Burden stats -->
+      <div>
+        <h3 style="color:var(--white);margin-bottom:1.25rem;">RSV Disease Burden — KSA Estimates</h3>
+
+        <div class="stat-highlight" aria-label="Pediatric RSV hospitalizations">
+          <div>
+            <div class="big count-anim" data-target="35">0</div>
+            <div class="label">% of pediatric lower respiratory hospitalizations in KSA attributable to RSV (children &lt;5 yrs)</div>
+          </div>
+        </div>
+        <div class="stat-highlight" aria-label="RSV-associated mortality in elderly">
+          <div>
+            <div class="big count-anim" data-target="5" style="color:var(--accent);">0</div>
+            <div class="label" style="color:var(--text-muted);">% 30-day case fatality among hospitalized adults 65+ with RSV-associated pneumonia</div>
+          </div>
+        </div>
+        <div class="stat-highlight" aria-label="ICU admission rate in RSV infants">
+          <div>
+            <div class="big count-anim" data-target="18" style="color:var(--danger);">0</div>
+            <div class="label" style="color:var(--text-muted);">% of RSV-hospitalized infants &lt;3 months requiring PICU-level care</div>
+          </div>
+        </div>
+
+        <div class="card mt-3" aria-label="Hajj and Umrah RSV risk context">
+          <div class="card-icon icon-amber" aria-hidden="true">🕌</div>
+          <h4>Hajj &amp; Umrah — Mass Gathering Risk</h4>
+          <p style="font-size:0.85rem;">Approximately 1.8–2.5 million pilgrims annually create conditions for amplified respiratory virus transmission. RSV co-circulates with influenza, rhinovirus, and other respiratory pathogens. Elderly pilgrims and those with comorbidities are at substantially elevated risk of severe RSV disease during congregational activities.</p>
+          <div class="chip chip-amber" style="margin-top:0.75rem;">Mass Gathering Amplifier</div>
+        </div>
+
+        <div class="mers-box" aria-label="MERS-CoV and RSV co-circulation context">
+          <h4>⚠ MERS-CoV &amp; Co-circulation Context</h4>
+          <p>Saudi Arabia accounts for &gt;85% of globally reported MERS-CoV cases. Concurrent MERS and RSV infection in immunocompromised and elderly patients has been documented, with synergistic immune impairment. RSV surveillance programs must account for dual respiratory pathogen risk in KSA healthcare settings.</p>
+        </div>
+      </div>
+
+      <!-- Comorbidity burden -->
+      <div>
+        <h3 style="color:var(--white);margin-bottom:1.25rem;">KSA Comorbidity Burden</h3>
+        <p style="font-size:0.85rem;margin-bottom:1.25rem;">High prevalence of chronic conditions in Saudi Arabia significantly expands the population at elevated RSV risk. These figures represent adult population prevalence estimates.</p>
+
+        <ul class="comorbidity-list" aria-label="Comorbidity prevalence in Saudi Arabia">
+          <li>
+            <span class="name">Type 2 Diabetes</span>
+            <div class="bar-wrap"><div class="bar-fill" style="width:0%" data-width="28%"></div></div>
+            <span class="pct">28%</span>
+          </li>
+          <li>
+            <span class="name">Hypertension</span>
+            <div class="bar-wrap"><div class="bar-fill" style="width:0%" data-width="33%"></div></div>
+            <span class="pct">33%</span>
+          </li>
+          <li>
+            <span class="name">Obesity (BMI ≥30)</span>
+            <div class="bar-wrap"><div class="bar-fill" style="width:0%" data-width="35%"></div></div>
+            <span class="pct">35%</span>
+          </li>
+          <li>
+            <span class="name">Cardiovascular Disease</span>
+            <div class="bar-wrap"><div class="bar-fill" style="width:0%" data-width="18%"></div></div>
+            <span class="pct">18%</span>
+          </li>
+          <li>
+            <span class="name">Chronic Kidney Disease</span>
+            <div class="bar-wrap"><div class="bar-fill" style="width:0%" data-width="12%"></div></div>
+            <span class="pct">12%</span>
+          </li>
+          <li>
+            <span class="name">Asthma / COPD</span>
+            <div class="bar-wrap"><div class="bar-fill" style="width:0%" data-width="10%"></div></div>
+            <span class="pct">10%</span>
+          </li>
+          <li>
+            <span class="name">Immunocompromised</span>
+            <div class="bar-wrap"><div class="bar-fill" style="width:0%" data-width="5%"></div></div>
+            <span class="pct">~5%</span>
+          </li>
+        </ul>
+
+        <div class="card mt-3" aria-label="Elderly population growth">
+          <div class="card-icon icon-purple" aria-hidden="true">📈</div>
+          <h4>Aging Population — Growing Burden</h4>
+          <p style="font-size:0.85rem;">Adults aged 60+ represent ~7% of KSA's population today, projected to reach 15% by 2040. Combined with high comorbidity rates, this demographic shift will substantially increase RSV-attributable hospitalization burden, underscoring the urgency of adult RSV vaccination programs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ HIGH-RISK GROUPS ══════════════════════ -->
+<section id="high-risk" aria-labelledby="riskTitle">
+  <div class="container">
+    <p class="section-label">At-Risk Populations</p>
+    <h2 class="section-title" id="riskTitle">High-Risk Population Groups</h2>
+    <p class="section-desc">
+      Click each group to expand clinical details, risk factors, and recommended prevention strategies.
+    </p>
+
+    <div class="risk-cards-grid" role="list">
+
+      <div class="risk-card" role="listitem" tabindex="0" aria-expanded="false" aria-label="Infants under 6 months — click to expand">
+        <div class="emoji" aria-hidden="true">👶</div>
+        <div class="risk-level critical" aria-label="Critical risk">● Critical</div>
+        <h3>Infants &lt;6 months</h3>
+        <p class="risk-body">Highest hospitalization and ICU rates. Narrow airways, immature immunity, and waning maternal antibodies create peak vulnerability window.</p>
+        <div class="risk-detail" aria-hidden="true">
+          <ul>
+            <li>Immature innate and adaptive immunity</li>
+            <li>Bronchiolar diameter limits mucus clearance</li>
+            <li>Maternal IgG declines by 4–6 months</li>
+            <li>Premature birth amplifies all risks</li>
+            <li>Apnea risk highest in neonates &lt;6 weeks</li>
+          </ul>
+          <div class="prevention-tag">→ Nirsevimab (neonatal/infant mAb)</div>
+          <div class="prevention-tag">→ Maternal Immunization (Abrysvo)</div>
+        </div>
+      </div>
+
+      <div class="risk-card" role="listitem" tabindex="0" aria-expanded="false" aria-label="Premature infants — click to expand">
+        <div class="emoji" aria-hidden="true">🩺</div>
+        <div class="risk-level critical" aria-label="Critical risk">● Critical</div>
+        <h3>Premature Infants</h3>
+        <p class="risk-body">&lt;35 weeks gestation. Underdeveloped lungs, lower transplacental antibody transfer, higher rates of BPD and CHD comorbidities.</p>
+        <div class="risk-detail" aria-hidden="true">
+          <ul>
+            <li>BPD: 3–4× higher RSV hospitalization risk</li>
+            <li>CHD with hemodynamic significance adds risk</li>
+            <li>Reduced transplacental IgG at early delivery</li>
+            <li>Immature surfactant production</li>
+          </ul>
+          <div class="prevention-tag">→ Nirsevimab (regardless of season)</div>
+          <div class="prevention-tag">→ Palivizumab (selected high-risk)</div>
+        </div>
+      </div>
+
+      <div class="risk-card" role="listitem" tabindex="0" aria-expanded="false" aria-label="Adults 60 and older — click to expand">
+        <div class="emoji" aria-hidden="true">👴</div>
+        <div class="risk-level high" aria-label="High risk">● High</div>
+        <h3>Adults 60+</h3>
+        <p class="risk-body">Immunosenescence, chronic cardiopulmonary disease, and comorbidities (diabetes, CKD) drive severe RSV outcomes comparable to influenza burden in this group.</p>
+        <div class="risk-detail" aria-hidden="true">
+          <ul>
+            <li>3–7% 30-day mortality when hospitalized</li>
+            <li>RSV may trigger MACE (MI, stroke) within 7 days</li>
+            <li>COPD exacerbation frequency increases 2–3×</li>
+            <li>Functional decline post-hospitalization common</li>
+            <li>High KSA comorbidity burden amplifies risk</li>
+          </ul>
+          <div class="prevention-tag">→ Abrysvo (RSV vaccine, 60+)</div>
+          <div class="prevention-tag">→ mResvia (mRNA, 60+)</div>
+        </div>
+      </div>
+
+      <div class="risk-card" role="listitem" tabindex="0" aria-expanded="false" aria-label="Immunocompromised patients — click to expand">
+        <div class="emoji" aria-hidden="true">⚕️</div>
+        <div class="risk-level critical" aria-label="Critical risk">● Critical</div>
+        <h3>Immunocompromised</h3>
+        <p class="risk-body">HSCT recipients, solid organ transplant, hematologic malignancies, HIV. Prolonged viral shedding and high progression to LRTI with significant mortality.</p>
+        <div class="risk-detail" aria-hidden="true">
+          <ul>
+            <li>HSCT: LRTI progression rate 30–40%</li>
+            <li>Mortality in LRTI post-HSCT up to 50%</li>
+            <li>Prolonged shedding (weeks to months)</li>
+            <li>Ribavirin ± IVIG used off-label in severe cases</li>
+            <li>Isolation and infection control paramount</li>
+          </ul>
+          <div class="prevention-tag">→ Infection Control Protocols</div>
+          <div class="prevention-tag">→ Surveillance &amp; Early Detection</div>
+        </div>
+      </div>
+
+      <div class="risk-card" role="listitem" tabindex="0" aria-expanded="false" aria-label="Pregnant women — click to expand">
+        <div class="emoji" aria-hidden="true">🤰</div>
+        <div class="risk-level high" aria-label="High risk">● High</div>
+        <h3>Pregnant Women</h3>
+        <p class="risk-body">Serve as the immunization bridge. Maternal RSV vaccine generates IgG that crosses the placenta, providing passive protection to infants during peak vulnerability.</p>
+        <div class="risk-detail" aria-hidden="true">
+          <ul>
+            <li>Vaccination at 32–36 weeks gestation (Abrysvo)</li>
+            <li>IgG transfer peaks in third trimester</li>
+            <li>51.3% efficacy vs. severe infant RSV LRTI (MATISSE trial)</li>
+            <li>Protection wanes after 3–6 months (complement nirsevimab)</li>
+            <li>Preterm delivery signal under review (FDA label)</li>
+          </ul>
+          <div class="prevention-tag">→ Abrysvo (32–36 weeks gestation)</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ PREVENTION ════════════════════════════ -->
+<section id="prevention" aria-labelledby="prevTitle">
+  <div class="container">
+    <p class="section-label">Prevention Strategies</p>
+    <h2 class="section-title" id="prevTitle">Evidence-Based Prevention Approaches</h2>
+    <p class="section-desc">
+      A tiered prevention framework exists for RSV, tailored by age, risk profile, and available approvals. Select a strategy below to review clinical evidence and dosing guidance.
+    </p>
+
+    <div class="tabs" role="tablist" aria-label="Prevention strategy tabs">
+      <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="tab-maternal" id="btn-maternal">
+        🤰 Maternal Immunization
+      </button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-nirsevimab" id="btn-nirsevimab">
+        💉 Nirsevimab (mAb)
+      </button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-adult" id="btn-adult">
+        👴 Adult Vaccine
+      </button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-supportive" id="btn-supportive">
+        🏥 Supportive Care
+      </button>
+    </div>
+
+    <div class="tab-panels">
+
+      <!-- ── Tab 1: Maternal ── -->
+      <div class="tab-panel active" id="tab-maternal" role="tabpanel" aria-labelledby="btn-maternal">
+        <div class="prevention-layout">
+          <div class="drug-card">
+            <div class="drug-name">Abrysvo®</div>
+            <div class="drug-class">RSVpreF Vaccine — Maternal Indication</div>
+            <ul class="drug-props">
+              <li><span class="prop-key">Manufacturer</span><span class="prop-val">Pfizer</span></li>
+              <li><span class="prop-key">Platform</span><span class="prop-val">Bivalent recombinant RSV pre-F protein (RSV-A + RSV-B)</span></li>
+              <li><span class="prop-key">Route</span><span class="prop-val">IM injection, single dose</span></li>
+              <li><span class="prop-key">Timing</span><span class="prop-val">32–36 weeks of gestation</span></li>
+              <li><span class="prop-key">Adjuvant</span><span class="prop-val">None (unadjuvanted)</span></li>
+              <li><span class="prop-key">Approval</span><span class="prop-val">FDA (Aug 2023), EMA (2023)</span></li>
+            </ul>
+            <div class="efficacy-bar-wrap">
+              <div class="efficacy-label">
+                <span>Efficacy vs. Severe RSV LRTI (infants, 90 days)</span>
+                <span style="color:var(--teal);font-weight:700;">81.8%</span>
+              </div>
+              <div class="efficacy-bar"><div class="efficacy-fill" style="width:0%" data-width="81.8%"></div></div>
+            </div>
+            <div class="efficacy-bar-wrap" style="margin-top:0.6rem;">
+              <div class="efficacy-label">
+                <span>Efficacy vs. Severe RSV LRTI (infants, 180 days)</span>
+                <span style="color:var(--teal);font-weight:700;">69.4%</span>
+              </div>
+              <div class="efficacy-bar"><div class="efficacy-fill" style="width:0%" data-width="69.4%"></div></div>
+            </div>
+            <div class="warning-box">
+              <strong>⚠ Safety Note:</strong> FDA label includes information about a numerical imbalance in preterm birth observed in MATISSE trial. Timing at 32–36 weeks is critical. Prescribers should evaluate individual benefit-risk.
+            </div>
+          </div>
+          <div>
+            <h3 style="color:var(--white);margin-bottom:1rem;">Mechanism &amp; Clinical Rationale</h3>
+            <p style="font-size:0.87rem;margin-bottom:1rem;">
+              Maternal immunization generates high-titer RSV-neutralizing antibodies (primarily anti-pre-F IgG) that are actively transported across the placenta via the neonatal Fc receptor (FcRn). This passive immunization strategy is most effective when vaccination occurs in the third trimester to maximize antibody transfer and cord blood titers.
+            </p>
+            <ul class="indications-list">
+              <li>Protects newborns before they can mount their own immune response</li>
+              <li>Antibodies persist for 3–6 months post-birth, covering peak RSV season</li>
+              <li>Particularly valuable in settings where nirsevimab access is limited</li>
+              <li>Complements nirsevimab — not always interchangeable</li>
+              <li>Single dose; no booster required in same pregnancy</li>
+            </ul>
+            <div class="card mt-3">
+              <h4>MATISSE Trial (Pfizer, n=7,358)</h4>
+              <p style="font-size:0.83rem;margin-top:0.4rem;">Phase 3 global RCT. Primary endpoint: medically attended severe RSV-associated LRTI in infants through 90 days post-birth. 81.8% VE (95% CI: 40.6–96.3%). Secondary endpoint at 180 days: 69.4% VE against severe disease. Consistent across RSV-A and RSV-B subtypes.</p>
+              <div class="chip chip-teal" style="margin-top:0.6rem;">Phase 3 RCT</div>
+              <div class="chip chip-green" style="margin-top:0.6rem;margin-left:0.3rem;">Peer-reviewed</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Tab 2: Nirsevimab ── -->
+      <div class="tab-panel" id="tab-nirsevimab" role="tabpanel" aria-labelledby="btn-nirsevimab">
+        <div class="prevention-layout">
+          <div class="drug-card">
+            <div class="drug-name">Beyfortus® (Nirsevimab)</div>
+            <div class="drug-class">Long-acting Monoclonal Antibody — Infant Indication</div>
+            <ul class="drug-props">
+              <li><span class="prop-key">Manufacturer</span><span class="prop-val">AstraZeneca / Sanofi</span></li>
+              <li><span class="prop-key">Class</span><span class="prop-val">Anti-RSV pre-F mAb (YTE half-life extension)</span></li>
+              <li><span class="prop-key">Route</span><span class="prop-val">IM injection, single dose</span></li>
+              <li><span class="prop-key">Dosing</span><span class="prop-val">&lt;5 kg: 50 mg; ≥5 kg: 100 mg</span></li>
+              <li><span class="prop-key">Timing</span><span class="prop-val">Before first RSV season; neonates at birth</span></li>
+              <li><span class="prop-key">Duration</span><span class="prop-val">~5 months protection</span></li>
+              <li><span class="prop-key">Approval</span><span class="prop-val">FDA (Jul 2023), EMA (2022), SFDA (pending/review)</span></li>
+            </ul>
+            <div class="efficacy-bar-wrap">
+              <div class="efficacy-label">
+                <span>Efficacy vs. RSV-LRTI (MELODY trial)</span>
+                <span style="color:var(--teal);font-weight:700;">74.5%</span>
+              </div>
+              <div class="efficacy-bar"><div class="efficacy-fill" style="width:0%" data-width="74.5%"></div></div>
+            </div>
+            <div class="efficacy-bar-wrap" style="margin-top:0.6rem;">
+              <div class="efficacy-label">
+                <span>Efficacy vs. Hospitalization (real-world, France)</span>
+                <span style="color:var(--teal);font-weight:700;">83%</span>
+              </div>
+              <div class="efficacy-bar"><div class="efficacy-fill" style="width:0%" data-width="83%"></div></div>
+            </div>
+          </div>
+          <div>
+            <h3 style="color:var(--white);margin-bottom:1rem;">Advantages Over Palivizumab</h3>
+            <ul class="indications-list">
+              <li>Extended half-life (~70 days) via YTE Fc modification — single-season protection with one dose</li>
+              <li>Targets pre-F conformation — 50–100× greater neutralizing potency than palivizumab</li>
+              <li>Approved for ALL infants in first RSV season (not limited to high-risk)</li>
+              <li>Eligible for all infants born within or entering their first RSV season</li>
+              <li>Can be administered at birth alongside routine vaccines</li>
+            </ul>
+            <div class="card mt-3">
+              <h4>MELODY Trial (n=1,490) + MEDLEY</h4>
+              <p style="font-size:0.83rem;margin-top:0.4rem;">MELODY: Term/late preterm infants ≥35 wks. Primary endpoint: medically attended RSV-LRTI. VE 74.5% (95% CI: 49.6–87.1%). MEDLEY extended to preterm 29–34 wks and those with CHD/BPD. Real-world data from France (2023–24 season) demonstrated 83% reduction in hospitalizations.</p>
+              <div class="chip chip-teal" style="margin-top:0.6rem;">Phase 3 RCT</div>
+              <div class="chip chip-amber" style="margin-top:0.6rem;margin-left:0.3rem;">Real-world evidence</div>
+            </div>
+            <div class="warning-box">
+              <strong>KSA Context:</strong> SFDA registration and NUPCO procurement pathways are under evaluation. Coordination with Saudi MOH NIP program is recommended for national rollout strategy.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Tab 3: Adult Vaccine ── -->
+      <div class="tab-panel" id="tab-adult" role="tabpanel" aria-labelledby="btn-adult">
+        <div class="prevention-layout">
+          <div class="drug-card">
+            <div class="drug-name">Abrysvo® / Arexvy®</div>
+            <div class="drug-class">RSV Vaccines — Adults 60+ Indication</div>
+            <ul class="drug-props">
+              <li><span class="prop-key">Abrysvo</span><span class="prop-val">Pfizer RSVpreF — IM, single dose, unadjuvanted</span></li>
+              <li><span class="prop-key">Arexvy</span><span class="prop-val">GSK RSVpreF3-OA — IM, single dose, AS01E adjuvanted</span></li>
+              <li><span class="prop-key">mResvia</span><span class="prop-val">Moderna mRNA-1345 — IM, single dose, 60+</span></li>
+              <li><span class="prop-key">Target</span><span class="prop-val">Adults ≥60 years; some guidelines extend to 50+</span></li>
+              <li><span class="prop-key">Schedule</span><span class="prop-val">Single dose; re-vaccination data emerging</span></li>
+            </ul>
+            <div class="efficacy-bar-wrap">
+              <div class="efficacy-label">
+                <span>Abrysvo: Efficacy vs. RSV-LRTI (RENOIR, 60+)</span>
+                <span style="color:var(--teal);font-weight:700;">67%</span>
+              </div>
+              <div class="efficacy-bar"><div class="efficacy-fill" style="width:0%" data-width="67%"></div></div>
+            </div>
+            <div class="efficacy-bar-wrap" style="margin-top:0.6rem;">
+              <div class="efficacy-label">
+                <span>Arexvy: Efficacy vs. Severe RSV-LRTI (60+)</span>
+                <span style="color:var(--teal);font-weight:700;">94.1%</span>
+              </div>
+              <div class="efficacy-bar"><div class="efficacy-fill" style="width:0%" data-width="94.1%"></div></div>
+            </div>
+            <div class="efficacy-bar-wrap" style="margin-top:0.6rem;">
+              <div class="efficacy-label">
+                <span>mResvia: Efficacy vs. RSV-LRTI (60+)</span>
+                <span style="color:var(--teal);font-weight:700;">83.7%</span>
+              </div>
+              <div class="efficacy-bar"><div class="efficacy-fill" style="width:0%" data-width="83.7%"></div></div>
+            </div>
+          </div>
+          <div>
+            <h3 style="color:var(--white);margin-bottom:1rem;">Clinical Rationale for Adults 60+</h3>
+            <ul class="indications-list">
+              <li>RSV causes 160,000+ hospitalizations and 14,000 deaths annually in US adults 65+ (comparable to influenza)</li>
+              <li>Immunosenescence reduces natural immune response — vaccine primes pre-F neutralizing responses</li>
+              <li>Arexvy AS01E adjuvant enhances immunogenicity particularly in elderly</li>
+              <li>ACIP recommends shared clinical decision-making for adults 60–74; recommendation for 75+</li>
+              <li>Particular benefit for those with underlying cardiopulmonary conditions, diabetes, CKD</li>
+            </ul>
+            <div class="card mt-3">
+              <h4>KSA Opportunity: Co-Administration</h4>
+              <p style="font-size:0.83rem;margin-top:0.4rem;">RSV vaccination can be co-administered with influenza and pneumococcal vaccines during seasonal vaccination campaigns. The existing Hajj/Umrah vaccination infrastructure provides an operational model for reaching adult RSV vaccine target populations.</p>
+              <div class="chip chip-teal" style="margin-top:0.6rem;">Co-admin with Flu/Pneumo</div>
+            </div>
+            <div class="warning-box">
+              <strong>SFDA Status:</strong> Adult RSV vaccine registration and ACIP-equivalent KSA advisory committee alignment with Saudi MOH guidelines is ongoing. HCPs should monitor SFDA approvals and MOH circulars.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Tab 4: Supportive Care ── -->
+      <div class="tab-panel" id="tab-supportive" role="tabpanel" aria-labelledby="btn-supportive">
+        <h3 style="color:var(--white);margin-bottom:1.25rem;">Supportive Care &amp; Infection Control</h3>
+        <p style="font-size:0.87rem;margin-bottom:1.5rem;">No RSV-specific antiviral is approved for general use. Management is supportive, focusing on oxygenation, hydration, and preventing secondary complications.</p>
+        <div class="supportive-grid">
+          <div class="support-card" aria-label="Oxygenation support">
+            <h5>🫁 Oxygenation</h5>
+            <p>Supplemental O₂ to maintain SpO₂ ≥92–94%. HFNC first-line in infants before CPAP/NIV. Minimize intubation where possible.</p>
+          </div>
+          <div class="support-card" aria-label="Hydration management">
+            <h5>💧 Hydration</h5>
+            <p>NG tube feeding preferred over IV fluids in infants with feeding difficulty. Avoid fluid overload. Monitor sodium carefully — SIADH risk.</p>
+          </div>
+          <div class="support-card" aria-label="Bronchodilators">
+            <h5>💊 Bronchodilators</h5>
+            <p>Routine nebulized bronchodilators (salbutamol, epinephrine) NOT recommended for bronchiolitis per AAP/NICE guidelines. Trial-and-continue only if response documented.</p>
+          </div>
+          <div class="support-card" aria-label="Corticosteroids">
+            <h5>⚠️ Corticosteroids</h5>
+            <p>Not recommended for RSV bronchiolitis. May be considered for RSV-triggered severe COPD/asthma exacerbations in adults per standard disease management.</p>
+          </div>
+          <div class="support-card" aria-label="Ribavirin antiviral therapy">
+            <h5>🧪 Ribavirin</h5>
+            <p>Off-label use in severe RSV in HSCT/immunocompromised. Inhaled or oral. Limited evidence. Considered on case-by-case with ID/transplant team.</p>
+          </div>
+          <div class="support-card" aria-label="Infection control measures">
+            <h5>🧤 Infection Control</h5>
+            <p>Contact + droplet precautions. Cohort RSV patients. Hand hygiene compliance. Visitor restrictions during peak season in NICU/PICU. HCW screening protocols.</p>
+          </div>
+        </div>
+        <div class="card mt-4" aria-label="Hospital-based RSV management pathway">
+          <h4>Hospital Admission Criteria (Pediatric RSV)</h4>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.75rem;margin-top:0.85rem;">
+            <div style="background:rgba(224,92,92,0.1);border:1px solid rgba(224,92,92,0.25);border-radius:8px;padding:0.85rem;">
+              <p style="font-size:0.75rem;font-weight:700;color:var(--danger);margin-bottom:0.4rem;">ADMIT</p>
+              <p style="font-size:0.8rem;">SpO₂ &lt;90%, moderate-severe respiratory distress, age &lt;3 months, prematurity, dehydration, unable to feed, parental concerns</p>
+            </div>
+            <div style="background:rgba(240,165,0,0.08);border:1px solid rgba(240,165,0,0.2);border-radius:8px;padding:0.85rem;">
+              <p style="font-size:0.75rem;font-weight:700;color:var(--accent);margin-bottom:0.4rem;">OBSERVE</p>
+              <p style="font-size:0.8rem;">SpO₂ 90–94%, mild-moderate distress, age 3–6 months, borderline feeding, borderline social situation</p>
+            </div>
+            <div style="background:rgba(61,186,126,0.08);border:1px solid rgba(61,186,126,0.2);border-radius:8px;padding:0.85rem;">
+              <p style="font-size:0.75rem;font-weight:700;color:var(--success);margin-bottom:0.4rem;">DISCHARGE</p>
+              <p style="font-size:0.8rem;">SpO₂ ≥94% on room air, tolerating feeds, mild symptoms, age &gt;3 months, reliable caregiver with return precautions</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ GUIDELINES ════════════════════════════ -->
+<section id="guidelines" aria-labelledby="guidelinesTitle">
+  <div class="container">
+    <p class="section-label">NIP &amp; Guidelines</p>
+    <h2 class="section-title" id="guidelinesTitle">National &amp; International Immunization Guidelines</h2>
+    <p class="section-desc">
+      RSV prevention is rapidly entering national immunization program frameworks. Below is an overview of key guideline positions relevant to KSA practice.
+    </p>
+
+    <div class="guidelines-grid">
+
+      <div class="guideline-card" aria-label="Saudi MOH and NUPCO guidelines">
+        <div class="org-badge"><div class="dot" style="background:#00bfae;"></div> Saudi MOH / NUPCO</div>
+        <h3 style="color:var(--white);margin-bottom:0.85rem;">Kingdom of Saudi Arabia</h3>
+        <ul class="rec-list">
+          <li><span class="bullet">›</span>SFDA regulatory review of nirsevimab (Beyfortus) and adult RSV vaccines ongoing</li>
+          <li><span class="bullet">›</span>Saudi NIP currently covers childhood vaccines via NUPCO procurement framework</li>
+          <li><span class="bullet">›</span>Hajj Health Program vaccination campaigns provide infrastructure for adult RSV vaccine delivery</li>
+          <li><span class="bullet">›</span>MOH seasonal respiratory virus surveillance programs track RSV activity (Oct–Mar)</li>
+          <li><span class="bullet">›</span>Palivizumab access exists through MOH for highest-risk premature infants</li>
+        </ul>
+        <div style="margin-top:1rem;">
+          <p style="font-size:0.77rem;color:var(--text-muted);">NIP Integration Timeline (Projected)</p>
+          <div class="timeline-bar" aria-label="Regulatory and NIP integration timeline">
+            <div class="timeline-seg done">SFDA Submission</div>
+            <div class="timeline-seg active">Review</div>
+            <div class="timeline-seg pending">MOH Approval</div>
+            <div class="timeline-seg pending">NIP Inclusion</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="guideline-card" aria-label="ACIP CDC recommendations">
+        <div class="org-badge"><div class="dot" style="background:#4299e1;"></div> ACIP / CDC</div>
+        <h3 style="color:var(--white);margin-bottom:0.85rem;">United States — ACIP Recommendations</h3>
+        <ul class="rec-list">
+          <li><span class="bullet">›</span><strong style="color:var(--white);">Nirsevimab:</strong> Recommended for all infants &lt;8 months entering first RSV season; 8–19 months if high-risk</li>
+          <li><span class="bullet">›</span><strong style="color:var(--white);">Maternal RSV vaccine (Abrysvo):</strong> Recommended 32–36 wks gestation, seasonally (Sep–Jan); or year-round if entering season</li>
+          <li><span class="bullet">›</span><strong style="color:var(--white);">Adults 75+:</strong> Single dose RSV vaccine (any approved product) recommended</li>
+          <li><span class="bullet">›</span><strong style="color:var(--white);">Adults 60–74:</strong> Shared clinical decision-making based on risk factors</li>
+          <li><span class="bullet">›</span>Maternal vaccine and nirsevimab: one or the other preferred; if maternal vaccine, infant nirsevimab generally not needed</li>
+        </ul>
+      </div>
+
+      <div class="guideline-card" aria-label="WHO position papers">
+        <div class="org-badge"><div class="dot" style="background:#f0a500;"></div> WHO</div>
+        <h3 style="color:var(--white);margin-bottom:0.85rem;">WHO Position — 2024</h3>
+        <ul class="rec-list">
+          <li><span class="bullet">›</span>WHO SAGE position paper on RSV prevention published 2024 — prioritizes high-burden LMICs</li>
+          <li><span class="bullet">›</span>Maternal RSV immunization recommended where approved and affordable</li>
+          <li><span class="bullet">›</span>Nirsevimab recognized as transformative for infant protection</li>
+          <li><span class="bullet">›</span>Adult RSV vaccine endorsed for 60+ with underlying conditions</li>
+          <li><span class="bullet">›</span>GAVI pathway under discussion for nirsevimab in LMICs — not applicable to KSA but influences regional policy dialogue</li>
+        </ul>
+      </div>
+
+      <div class="guideline-card" aria-label="European Medicines Agency recommendations">
+        <div class="org-badge"><div class="dot" style="background:#9f7aea;"></div> EMA / European Societies</div>
+        <h3 style="color:var(--white);margin-bottom:0.85rem;">European Approvals &amp; Guidance</h3>
+        <ul class="rec-list">
+          <li><span class="bullet">›</span>Beyfortus (nirsevimab) approved by EMA November 2022 — all infants &lt;12 months</li>
+          <li><span class="bullet">›</span>Abrysvo approved by EMA for maternal use and adults 60+</li>
+          <li><span class="bullet">›</span>Arexvy (GSK) approved by EMA for adults 60+</li>
+          <li><span class="bullet">›</span>Multiple EU countries (France, Spain, Luxembourg) launched national infant nirsevimab programs 2023–24 with documented real-world effectiveness</li>
+          <li><span class="bullet">›</span>European RSV surveillance programs provide transferable models for KSA</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="card mt-4" style="border-color: rgba(0,191,174,0.3);" aria-label="Key messages for KSA medical affairs">
+      <h3 style="color:var(--white); margin-bottom:1rem;">
+        <span style="color:var(--teal);">★</span> Key Messages for KSA Medical Affairs &amp; HCPs
+      </h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;">
+        <div style="background:var(--navy-light);border-radius:8px;padding:1rem;">
+          <p style="font-size:0.75rem;font-weight:700;color:var(--teal);margin-bottom:0.5rem;">INFANT PROTECTION</p>
+          <p style="font-size:0.83rem;">Nirsevimab offers the first single-dose, season-long passive immunization for all infants — a paradigm shift beyond palivizumab's high-risk-only scope. Advocate for SFDA approval and NIP inclusion.</p>
+        </div>
+        <div style="background:var(--navy-light);border-radius:8px;padding:1rem;">
+          <p style="font-size:0.75rem;font-weight:700;color:var(--accent);margin-bottom:0.5rem;">MATERNAL PATHWAY</p>
+          <p style="font-size:0.83rem;">Maternal Abrysvo immunization at 32–36 weeks is actionable now through OB/GYN networks and antenatal clinics. Patient and HCP education is the immediate priority ahead of national guidance.</p>
+        </div>
+        <div style="background:var(--navy-light);border-radius:8px;padding:1rem;">
+          <p style="font-size:0.75rem;font-weight:700;color:var(--danger);margin-bottom:0.5rem;">ADULT BURDEN</p>
+          <p style="font-size:0.83rem;">RSV in adults 60+ is systematically underdiagnosed. Improving RSV testing in hospitalized elderly patients with respiratory illness is critical for establishing KSA-specific burden data.</p>
+        </div>
+        <div style="background:var(--navy-light);border-radius:8px;padding:1rem;">
+          <p style="font-size:0.75rem;font-weight:700;color:var(--success);margin-bottom:0.5rem;">SURVEILLANCE</p>
+          <p style="font-size:0.83rem;">Strengthening sentinel surveillance for RSV seasonality patterns across KSA regions (particularly Makkah, Riyadh, Eastern Province) will refine timing and targeting of prevention interventions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ REFERENCES ════════════════════════════ -->
+<section id="references" aria-labelledby="refTitle">
+  <div class="container">
+    <p class="section-label">Key References</p>
+    <h2 class="section-title" id="refTitle">Selected Bibliography</h2>
+    <p class="section-desc">Key published literature informing the epidemiological estimates and clinical recommendations presented in this resource.</p>
+
+    <div class="ref-grid">
+      <div class="ref-item"><span class="ref-num">1.</span>Hammitt LL, et al. Nirsevimab for Prevention of RSV in Healthy Late-Preterm and Term Infants. <em>N Engl J Med.</em> 2022;386:837–846. (MELODY trial)</div>
+      <div class="ref-item"><span class="ref-num">2.</span>Kampmann B, et al. Bivalent Prefusion F Vaccine in Pregnancy to Prevent RSV Illness in Infants. <em>N Engl J Med.</em> 2023;388:1451–1464. (MATISSE trial)</div>
+      <div class="ref-item"><span class="ref-num">3.</span>Walsh EE, et al. Efficacy and Safety of a Bivalent RSV Prefusion F Vaccine in Older Adults. <em>N Engl J Med.</em> 2023;388:1465–1477. (RENOIR trial)</div>
+      <div class="ref-item"><span class="ref-num">4.</span>Papi A, et al. Respiratory Syncytial Virus Prefusion F Protein Vaccine in Older Adults. <em>N Engl J Med.</em> 2023;388:595–608. (AReSVi-006, Arexvy trial)</div>
+      <div class="ref-item"><span class="ref-num">5.</span>Al-Tawfiq JA, et al. RSV among children in Saudi Arabia. <em>Int J Infect Dis.</em> 2020. [Regional epidemiology data]</div>
+      <div class="ref-item"><span class="ref-num">6.</span>Falsey AR, et al. RSV Infection in Elderly and High-Risk Adults. <em>N Engl J Med.</em> 2005;352:1749–1759. [Foundational adult burden study]</div>
+      <div class="ref-item"><span class="ref-num">7.</span>Shi T, et al. Global, regional and national disease burden estimates of acute LRTI associated with RSV in young children in 2015. <em>Lancet.</em> 2017;390:946–958.</div>
+      <div class="ref-item"><span class="ref-num">8.</span>CDC/ACIP. RSV Vaccines — ACIP Recommendations 2023. <em>MMWR.</em> 2023;72(32):864–868.</div>
+      <div class="ref-item"><span class="ref-num">9.</span>WHO SAGE. Recommendations for RSV Vaccines — Position Paper. <em>WHO WER.</em> 2024;99(6):65–96.</div>
+      <div class="ref-item"><span class="ref-num">10.</span>Alharbi NS, et al. Prevalence of Type 2 Diabetes in Saudi Arabia. <em>Saudi Med J.</em> 2020. [KSA comorbidity data]</div>
+      <div class="ref-item"><span class="ref-num">11.</span>Delestrain C, et al. Effectiveness of Nirsevimab in preventing RSV hospitalizations — French real-world experience. <em>NEJM Evid.</em> 2024.</div>
+      <div class="ref-item"><span class="ref-num">12.</span>Zhu Q, et al. A highly potent extended half-life antibody as a potential RSV preventive agent. <em>mAbs.</em> 2017;9:1231–1241. [Nirsevimab mechanism]</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FOOTER ════════════════════════════════ -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="disclaimer" role="note" aria-label="Medical disclaimer">
+      <strong>⚕ Medical Disclaimer:</strong> This educational resource is intended solely for qualified healthcare professionals and Medical Affairs use. All epidemiological figures represent published estimates and regional approximations; they are not patient-specific data. No real patient data is used. Clinical decisions should be based on current approved prescribing information, individual patient assessment, and applicable local regulatory approvals. Product indications, SFDA approval status, and MOH guidelines are subject to change — verify current status before clinical application. This resource does not constitute medical advice.
+    </div>
+    <div class="footer-inner">
+      <div>
+        <div class="nav-logo" style="margin-bottom:0.5rem;">
+          <svg width="22" height="22" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+            <circle cx="14" cy="14" r="13" stroke="#00bfae" stroke-width="2"/>
+            <circle cx="14" cy="14" r="3" fill="#00bfae"/>
+          </svg>
+          RSV <span>Saudi Arabia</span>
+        </div>
+        <p class="footer-meta">Disease Burden &amp; Prevention Resource · Medical Education</p>
+        <p class="footer-meta" style="margin-top:0.25rem;">Built for Medical Affairs professionals and healthcare providers · KSA</p>
+      </div>
+      <div>
+        <p class="footer-meta">Content based on published literature as of 2024–2025.</p>
+        <p class="footer-meta" style="margin-top:0.25rem;">For regulatory and prescribing information, consult <a href="#references">product labels and SFDA resources</a>.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to top -->
+<button id="scrollTop" aria-label="Scroll to top">↑</button>
+
+<!-- ═══════════════════════ JAVASCRIPT ════════════════════════════ -->
+<script>
+  /* ── Nav scroll behavior ── */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+    document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
+  });
+
+  /* ── Hamburger ── */
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu   = document.getElementById('mobileMenu');
+  hamburgerBtn.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('open');
+    hamburgerBtn.setAttribute('aria-expanded', open);
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  /* ── Scroll to top ── */
+  document.getElementById('scrollTop').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  /* ── Active nav link on scroll ── */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks  = document.querySelectorAll('.nav-links a');
+  function updateActiveNav() {
+    let current = '';
+    sections.forEach(sec => {
+      if (window.scrollY >= sec.offsetTop - 100) current = sec.id;
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+  window.addEventListener('scroll', updateActiveNav);
+  updateActiveNav();
+
+  /* ── Animated counters ── */
+  function animateCounters(entries, observer) {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseFloat(el.dataset.target);
+      const isFloat = String(target).includes('.');
+      const duration = 1400;
+      const start = performance.now();
+      function step(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = eased * target;
+        el.textContent = isFloat ? value.toFixed(1) : Math.round(value).toLocaleString();
+        if (progress < 1) requestAnimationFrame(step);
+        else el.textContent = isFloat ? target.toFixed(1) : target.toLocaleString();
+      }
+      requestAnimationFrame(step);
+      observer.unobserve(el);
+    });
+  }
+  const counterObserver = new IntersectionObserver(animateCounters, { threshold: 0.5 });
+  document.querySelectorAll('.count-anim').forEach(el => counterObserver.observe(el));
+
+  /* ── Comorbidity bars ── */
+  function animateBars(entries, observer) {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.querySelectorAll('.bar-fill').forEach(bar => {
+        bar.style.width = bar.dataset.width;
+      });
+      observer.unobserve(entry.target);
+    });
+  }
+  const barSection = document.querySelector('.comorbidity-list');
+  if (barSection) {
+    const barObserver = new IntersectionObserver(animateBars, { threshold: 0.3 });
+    barObserver.observe(barSection);
+  }
+
+  /* ── Efficacy bars ── */
+  function animateEfficacyBars(entries, observer) {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.querySelectorAll('.efficacy-fill').forEach(bar => {
+        bar.style.width = bar.dataset.width;
+      });
+      observer.unobserve(entry.target);
+    });
+  }
+  const efficacyObserver = new IntersectionObserver(animateEfficacyBars, { threshold: 0.2 });
+  document.querySelectorAll('.tab-panel').forEach(panel => efficacyObserver.observe(panel));
+
+  /* ── Risk cards expand/collapse ── */
+  document.querySelectorAll('.risk-card').forEach(card => {
+    function toggle() {
+      const isActive = card.classList.contains('active');
+      document.querySelectorAll('.risk-card').forEach(c => {
+        c.classList.remove('active');
+        c.setAttribute('aria-expanded', 'false');
+        c.querySelector('.risk-detail').setAttribute('aria-hidden', 'true');
+      });
+      if (!isActive) {
+        card.classList.add('active');
+        card.setAttribute('aria-expanded', 'true');
+        card.querySelector('.risk-detail').setAttribute('aria-hidden', 'false');
+      }
+    }
+    card.addEventListener('click', toggle);
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+    });
+  });
+
+  /* ── Prevention tabs ── */
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      const panel = document.getElementById(btn.getAttribute('aria-controls'));
+      panel.classList.add('active');
+      // Trigger efficacy bar animation for newly shown panel
+      panel.querySelectorAll('.efficacy-fill').forEach(bar => {
+        bar.style.width = '0%';
+        setTimeout(() => { bar.style.width = bar.dataset.width; }, 50);
+      });
+    });
+  });
+
+  /* ── Keyboard nav: tab panels ── */
+  document.querySelectorAll('.tab-btn').forEach((btn, i, btns) => {
+    btn.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') { btns[(i+1) % btns.length].focus(); btns[(i+1) % btns.length].click(); }
+      if (e.key === 'ArrowLeft')  { btns[(i-1+btns.length) % btns.length].focus(); btns[(i-1+btns.length) % btns.length].click(); }
+    });
+  });
+</script>
+</body>
+</html>
